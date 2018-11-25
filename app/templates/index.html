@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='external.css') }}" />
+    <title>Xenoblade App</title>
+</head>
+
+    <body>
+        <div id="indexList">
+        <ul id="indexUL">
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('index') }}">Home</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('drivers') }}">Drivers</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('blades') }}">Blades</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('roles') }}">Roles</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('weapons') }}">Weapons</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('element') }}">Elements</a>
+            {% if current_user.is_anonymous %}
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('login') }}">Login</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('register') }}">Register</a>
+            {% else %}
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('send') }}">Add New</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('myBlades') }}">My Blades</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('addUserBlade') }}">Add User Blade</a>
+            <li id="indexLi"><a id="indexLiA"  href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </ul>
+        {% block content %} {% endblock %}
+    </body>
+</html>

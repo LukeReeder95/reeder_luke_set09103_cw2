@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='external.css') }}" />
+    <form method="POST" action="/addUserBlade">
+        <input type="text" name="currentBlade">
+
+        <input class="btn" type="submit" value="submit">
+{% endblock %}
